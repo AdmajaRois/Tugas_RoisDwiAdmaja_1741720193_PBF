@@ -1,5 +1,27 @@
+.container {
+  min-height: 100%;
+  position: relative;
+}
 .App {
   text-align: center;
+  position: relative;
+  min-height: 100%;
+}
+.txtTitle {
+  text-align: center;
+  margin-bottom: 40px;
+}
+h1{
+  font-size: 50px;
+}
+.card{
+  padding:20px;
+  align-items: center;
+  box-shadow: 0px 2px 2px #ccc;
+}
+
+.table-noborder {
+  border: none;
 }
 
 .App-logo {
@@ -12,6 +34,16 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+.footer-copyright {
+    background-color: #282c34;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;  
+}
+
 
 .App-header {
   background-color: #282c34;
