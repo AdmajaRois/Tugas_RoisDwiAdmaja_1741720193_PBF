@@ -6,9 +6,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import BlogPost from './container/BlogPost/BlogPost';
+import Tugas from './container/Tugas/Tugas';
 import Sidebar from './component/sidebar';
 
-ReactDOM.render(<BlogPost />, document.getElementById('content'));
+ReactDOM.render(<Tugas />, document.getElementById('content'));
 ReactDOM.render(<Sidebar/>, document.getElementById('sidebar'));
 
 // If you want your app to work offline and load faster, you can change
