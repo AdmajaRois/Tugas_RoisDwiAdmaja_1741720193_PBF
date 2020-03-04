@@ -4,10 +4,10 @@ import IsiMahasiswa from '../../component/Tugas/IsiMahasiswa';
 
 class Tugas extends Component {
     state = {
-        listArtikel: [],
-        insertArtikel: {
+        listMahasiswa: [],
+        insertMahasiswa: {
             id:1,
-            NIM:"",
+            nim:"",
             nama:"",
             alamat:"",
             hp:"",
@@ -17,7 +17,7 @@ class Tugas extends Component {
     }
 
     ambilDataDariAPI = () => {
-        fetch('http://localhost:4000/mahasiswa?_sort=id$_order=desc')
+        fetch('http://localhost:4000/mahasiswa')
         .then(response => response.json())
         .then(jsonAmbilApi => {
             this.setState({
@@ -30,6 +30,31 @@ class Tugas extends Component {
         this.ambilDataDariAPI()
     }
 
+    handelTambahMhs = (event) => {
+        let formInsertMhs = {...this.state.insertMahasiswa};
+        let timeStamp = new Date().getTime();
+        formInsertMhs['id'] = timeStamp;
+        formInsertMhs[event.target.name] = event.target.value;
+        formInsertMhs[{value: event.target.value}] = event.target.value;
+        this.setState ({
+            insertMahasiswa: formInsertMhs
+        })
+    }
+
+    handelSimpan =()=>{
+        fetch('http://localhost:4000/mahasiswa', {
+            method: 'post',
+            headers: {
+                'Accept' : 'application/json',
+                'Content-Type' : 'application/json'
+            },
+            body:JSON.stringify(this.state.insertMahasiswa)
+        })
+        .then((Response)=>{
+            this.ambilDataDariAPI();
+        })
+    }
+
     render() {
         return(
             <div className="body">
@@ -37,7 +62,7 @@ class Tugas extends Component {
                     <div className="form-group row">
                         <label htmlFor="NIM" className="col-sm-2 col-form-label">NIM</label>
                         <div className="col-sm-10">
-                            <input type="text" className="form-control" id="NIM" name="NIM" onChange={this.handelTambahMhs}/>
+                            <input type="text" className="form-control" id="nim" name="nim" onChange={this.handelTambahMhs}/>
                         </div>
                     </div>
                     <div className="form-group row">
@@ -67,9 +92,9 @@ class Tugas extends Component {
                     <div className="form-group row">
                         <label htmlFor="status" className="col-sm-2 col-form-label">STATUS</label>
                         <div className="col-sm-10">
-                            <select className="form-control">
-                                <option>AKTIF</option>
-                                <option>LULUS</option>
+                            <select className="form-control" value={this.state.value} onChange={this.handelTambahMhs}> 
+                                <option value="Aktif">AKTIF</option>
+                                <option value="Lulus">LULUS</option>
                             </select>
                         </div>
                     </div>
@@ -77,9 +102,9 @@ class Tugas extends Component {
                 </div>
                 <h2>Daftar Mahasiswa</h2>
                 {
-                    this.state.listArtikel.map(mahasiswa =>{
+                    this.state.listMahasiswa.map(mahasiswa =>{
                         return <IsiMahasiswa key={mahasiswa.id}
-                                    nim = {mahasiswa.nim}
+                                    nim = {mahasiswa.NIM}
                                     nama = {mahasiswa.nama}
                                     alamat = {mahasiswa.alamat}
                                     hp = {mahasiswa.hp}
