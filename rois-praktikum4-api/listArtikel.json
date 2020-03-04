@@ -23,6 +23,12 @@
       "id": 4,
       "title": "Jalin Kerjasama dengan Shenyang University of Technology, JTI Polinema Terbangkan Empat Mahasiswa ke Tiongkok",
       "body": "Empat mahasiswa Jurusan Teknologi Informasi (JTI) Politeknik Negeri Malang (Polinema) telah berangkat ke negeri tirai bambu pada hari selasa (8/10/2019) kemarin, dalam rangka kerjasama antar kampus Polinema dan Shenyang University of Technology. Para mahasiswa tersebut..."
+    },
+    {
+      "userId": 1,
+      "id": 1583347697874,
+      "title": "Ini adalah sebuah artikel ",
+      "body": "isinya masih saya pikirkan, proses sambil jalan menulis sebuah artikel"
     }
   ],
   "comments": [
@@ -57,31 +63,13 @@
       "status": "lulus"
     },
     {
-      "id": 1583344859641,
-      "NIM": "2910381923123",
-      "nama": "Sujono kasino",
-      "alamat": "Jl. jaringan utama, malang",
-      "hp": "08192312321",
-      "angkatan": 2009,
+      "id": 1583347647941,
+      "NIM": "219219321",
+      "nama": "johnson",
+      "alamat": "sumber pucung",
+      "hp": "021989232",
+      "angkatan": "2012",
       "status": "LULUS"
-    },
-    {
-      "id": 1583345057934,
-      "NIM": "129371273",
-      "nama": "Kintul arif",
-      "alamat": "bujangan jauh disana",
-      "hp": "129731923",
-      "angkatan": "1980",
-      "status": "LULUS"
-    },
-    {
-      "id": 1583347461904,
-      "NIM": "12391273",
-      "nama": "johnshon",
-      "alamat": "land of dawn",
-      "hp": "12983123",
-      "angkatan": "2090",
-      "status": "AKTIF"
     }
   ]
 }
