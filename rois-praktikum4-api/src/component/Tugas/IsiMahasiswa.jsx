@@ -8,12 +8,12 @@ const IsiMahasiswa=(props) => {
             </div>
             <div className="konten-mahasiswa">
                 <div className="nama-mahasiswa">{props.nama}</div>
-                <p className="nim-mahasiswa">NIM            :{props.nim}</p>
+                <p className="nim-mahasiswa">NIM            :{props.NIM}</p>
                 <p className="alamat-mahasiswa">Alamat      :{props.alamat}</p>
                 <p className="hp-mahasiswa">Hp              :{props.hp}</p>
                 <p className="angkatan-mahasiswa">Angkatan  :{props.angkatan}</p>
                 <p className="status-mahasiswa">Status      :{props.status}</p>
-                <button className="btn btn-sm btn-warning">Hapus</button>
+                <button className="btn btn-sm btn-warning" onClick={()=>props.hapusMhs(props.idMahasiswa)}>Hapus</button>
             </div>
         </div>
     )

@@ -7,17 +7,17 @@ class Tugas extends Component {
         listMahasiswa: [],
         insertMahasiswa: {
             id:1,
-            nim:"",
+            NIM:1,
             nama:"",
             alamat:"",
             hp:"",
-            angkatan:"",
+            angkatan:2000,
             status: ""
         }
     }
 
     ambilDataDariAPI = () => {
-        fetch('http://localhost:4000/mahasiswa')
+        fetch('http://localhost:4000/mahasiswa?_sort=id&_order=desc')
         .then(response => response.json())
         .then(jsonAmbilApi => {
             this.setState({
@@ -35,7 +35,8 @@ class Tugas extends Component {
         let timeStamp = new Date().getTime();
         formInsertMhs['id'] = timeStamp;
         formInsertMhs[event.target.name] = event.target.value;
-        formInsertMhs[{value: event.target.value}] = event.target.value;
+        formInsertMhs['status'] = event.target.value;
+
         this.setState ({
             insertMahasiswa: formInsertMhs
         })
@@ -55,6 +56,13 @@ class Tugas extends Component {
         })
     }
 
+    handleHapusMhs = (id) => {
+        fetch(`http://localhost:4000/mahasiswa/${id}`, {method: 'DELETE'})
+        .then(res => {
+            this.ambilDataDariAPI();
+        })
+    } 
+
     render() {
         return(
             <div className="body">
@@ -62,7 +70,7 @@ class Tugas extends Component {
                     <div className="form-group row">
                         <label htmlFor="NIM" className="col-sm-2 col-form-label">NIM</label>
                         <div className="col-sm-10">
-                            <input type="text" className="form-control" id="nim" name="nim" onChange={this.handelTambahMhs}/>
+                            <input type="text" className="form-control" id="NIM" name="NIM" onChange={this.handelTambahMhs}/>
                         </div>
                     </div>
                     <div className="form-group row">
@@ -92,10 +100,7 @@ class Tugas extends Component {
                     <div className="form-group row">
                         <label htmlFor="status" className="col-sm-2 col-form-label">STATUS</label>
                         <div className="col-sm-10">
-                            <select className="form-control" value={this.state.value} onChange={this.handelTambahMhs}> 
-                                <option value="Aktif">AKTIF</option>
-                                <option value="Lulus">LULUS</option>
-                            </select>
+                            <input type="text" className="form-control" id="status" name="status" onChange={this.handelTambahMhs}/>
                         </div>
                     </div>
                     <button type="submit" className="btn btn-primary" onClick={this.handelSimpan}>Simpan</button>
@@ -104,12 +109,14 @@ class Tugas extends Component {
                 {
                     this.state.listMahasiswa.map(mahasiswa =>{
                         return <IsiMahasiswa key={mahasiswa.id}
-                                    nim = {mahasiswa.NIM}
+                                    NIM = {mahasiswa.NIM}
                                     nama = {mahasiswa.nama}
                                     alamat = {mahasiswa.alamat}
                                     hp = {mahasiswa.hp}
                                     angkatan = {mahasiswa.angkatan}
-                                    status = {mahasiswa.status} />
+                                    status = {mahasiswa.status}
+                                    idMahasiswa = {mahasiswa.id}
+                                    hapusMhs={this.handleHapusMhs} />
                     })
                 }
             </div>
