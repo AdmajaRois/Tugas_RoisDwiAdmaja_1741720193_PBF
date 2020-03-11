@@ -70,6 +70,15 @@
       "hp": "021989232",
       "angkatan": "2012",
       "status": "LULUS"
+    },
+    {
+      "id": 1583380629179,
+      "NIM": "1297187293",
+      "nama": "leonardo da vinci",
+      "alamat": "jl. kemang no 46, san luis, italy",
+      "hp": "0192082913123",
+      "angkatan": "1954",
+      "status": "LULUS"
     }
   ]
 }
