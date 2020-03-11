@@ -1,60 +1,99 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import {BrowserRouter as Router,
         Switch,
         Route,
-        Link} from "react-router-dom";
+        Link, Redirect, useHistory, useLocation} from "react-router-dom";
 
-function App() {
+export default function AuthExample() {
   return (
     <Router>
       <div>
-        <h2>Account</h2>
+        <AuthButton />
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/dashboard">Dashboard</Link></li>
+          <li><Link to="/public">Public Page</Link></li>
+          <li><Link to="/private">Private Page</Link></li>
         </ul>
-        <hr />
+        <hr/>
         <Switch>
-          <Route exact path="/">
-            <Home/>
-          </Route>
-          <Route path="/about">
-            <About/>
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard/>
-          </Route>
+          <Route path="/public"><PublicPage /></Route>
+          <Route path="/login"><LoginPage /></Route>
+          <PrivateRoute path="/private"><ProtectedPage /></PrivateRoute>
         </Switch>
       </div>
     </Router>
   );
 }
 
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
+
+const fakeAuth = {
+  isAuthenticated: false,
+  authenticate(cb) {
+    fakeAuth.isAuthenticated = true;
+    setTimeout(cb, 100);
+  },
+  signOut(cb) {
+    fakeAuth.isAuthenticated = false;
+    setTimeout(cb, 100);
+  }
+};
+
+function AuthButton() {
+  let history = useHistory();
+
+  return fakeAuth.isAuthenticated ? (
+    <p>
+      Welcome!{" "}
+      <button onClick={()=>{
+        fakeAuth.signOut(()=>history.push("/"));
+      }}>Sign Out</button>
+    </p>
+  ) : (
+    <p>You're not logged in</p>
+  );
+}
+function PrivateRoute({children, ...rest}) {
+  return(
+    <Route 
+      {...rest}
+      render={({ location })=>
+        fakeAuth.isAuthenticated ? (
+          children
+        ):(
+          <Redirect 
+            to={{
+              pathname: "/login",
+              state: {from: location}
+            }}
+          />
+        )
+      }
+    />
   );
 }
 
-function About() {
-  return(
+function PublicPage() {
+  return <h3>Public</h3>
+}
+
+function ProtectedPage() {
+  return <h3>Private</h3>;
+}
+
+function LoginPage() {
+  let history = useHistory();
+  let location = useLocation();
+
+  let {from} = location.state || {from: {pathname: "/"}};
+  let login = () => {
+    fakeAuth.authenticate(()=>{
+      history.replace(from);
+    });
+  };
+  return (
     <div>
-      <h2>About</h2>
+      <p>you must log in to view the page at {from.pathname}</p>
+      <button onClick={login}>Log in</button>
     </div>
   )
 }
 
-function Dashboard() {
-  return(
-    <div>
-      <h2>Dashboard</h2>
-    </div>
-  )
-}
-
-export default App;
