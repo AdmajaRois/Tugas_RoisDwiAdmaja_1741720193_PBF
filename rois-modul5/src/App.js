@@ -3,19 +3,35 @@ import {BrowserRouter as Router,
         Switch,
         Route,
         Link, Redirect, useHistory, useLocation} from "react-router-dom";
+// import {MDBNav, MDBNavLink, MDBCol, MDBContainer, MDBRow} from 'mdbreact';
+
 
 export default function AuthExample() {
   return (
+//     <Router>
+//     <MDBContainer>
+//         <MDBRow>
+//             <MDBCol size="6">
+//                 <MDBNav color="blue-gradient" className="font-weight-bold py-4 px-2 mb-4">
+//                     <MDBNavLink className="white-text" active to="/"><b>MarketPlace</b></MDBNavLink>
+//                     <MDBNavLink className="white-text" to="/">Home</MDBNavLink>
+//                     <MDBNavLink className="white-text" to="/product">Product</MDBNavLink>
+//                     <MDBNavLink className="white-text" to="/about">About</MDBNavLink>
+//                 </MDBNav>
+//             </MDBCol>
+//         </MDBRow>
+//     </MDBContainer>
+// </Router>
     <Router>
-      <div>
+        <div>
         <AuthButton />
         <ul>
-          <li><Link to="/public">Public Page</Link></li>
-          <li><Link to="/private">Private Page</Link></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/private">Product</Link></li>
         </ul>
         <hr/>
         <Switch>
-          <Route path="/public"><PublicPage /></Route>
+          <Route exact path="/"><PublicPage /></Route>
           <Route path="/login"><LoginPage /></Route>
           <PrivateRoute path="/private"><ProtectedPage /></PrivateRoute>
         </Switch>
