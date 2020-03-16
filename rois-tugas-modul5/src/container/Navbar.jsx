@@ -1,28 +1,33 @@
 import React from "react";
-import {BrowserRouter as Router,
-        Switch,
-        Route,
-        Link,
-        useParams, useHistory, useLocation, useRouteMatch}  from 'react-router-dom';
-import { MDBNavItem, MDBNav, MDBNavLink } from "mdbreact";
-
+import { MDBNavItem, MDBNavLink, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBContainer } from "mdbreact";
 
 const Navbar = () => {
     return(
-        <MDBNav color="blue-gradient" className="justify-content-center">
-            <MDBNavItem>
-                <MDBNavLink className="white-text" active to="/"><b>MarketLokal</b></MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-                <MDBNavLink className="white-text" to="/home">Home</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-                <MDBNavLink className="white-text" to="/product">Product</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-                <MDBNavLink className="white-text" to="/about">About</MDBNavLink>
-            </MDBNavItem>
-      </MDBNav>
+       <div>
+            <MDBNavbar
+            color="peach-gradient"
+            dark
+            expand="md"
+            fixed="top"
+            scrolling>
+                <MDBContainer>
+                    <MDBNavbarBrand>
+                        <strong className="white-text">LokalPride</strong>
+                    </MDBNavbarBrand>
+                    <MDBNavbarNav left>
+                        <MDBNavItem >
+                            <MDBNavLink to="/">Home</MDBNavLink>
+                        </MDBNavItem>
+                        <MDBNavItem>
+                            <MDBNavLink to="/products">Products</MDBNavLink>
+                        </MDBNavItem>
+                        <MDBNavItem>
+                            <MDBNavLink to="/about">About</MDBNavLink>
+                        </MDBNavItem>
+                    </MDBNavbarNav>
+                </MDBContainer>
+            </MDBNavbar>
+       </div>
     )
 }
 
