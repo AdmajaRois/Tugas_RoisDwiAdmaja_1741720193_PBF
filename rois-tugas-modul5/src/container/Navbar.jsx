@@ -1,5 +1,6 @@
 import React from "react";
 import { MDBNavItem, MDBNavLink, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBContainer } from "mdbreact";
+import AuthButton from '../App.js';
 
 const Navbar = () => {
     return(
@@ -23,6 +24,11 @@ const Navbar = () => {
                         </MDBNavItem>
                         <MDBNavItem>
                             <MDBNavLink to="/about">About</MDBNavLink>
+                        </MDBNavItem>
+                    </MDBNavbarNav> 
+                    <MDBNavbarNav right>
+                        <MDBNavItem>
+                    
                         </MDBNavItem>
                     </MDBNavbarNav>
                 </MDBContainer>

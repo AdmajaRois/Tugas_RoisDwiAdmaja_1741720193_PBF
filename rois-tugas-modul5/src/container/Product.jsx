@@ -1,8 +1,11 @@
 import React from 'react';
 import {Link,
-        Route} from 'react-router-dom';
+        Route,
+        useHistory,
+        Redirect,
+        useLocation} from 'react-router-dom';
 import Footware from './footware/compass.jpg';
-import { MDBContainer, MDBNav,MDBCol, MDBNavItem, MDBNavLink, MDBTabContent, MDBTabPane, MDBRow, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBModal, MDBModalHeader, MDBModalBody } from 'mdbreact';
+import { MDBContainer, MDBNav,MDBCol, MDBNavItem, MDBNavLink, MDBTabContent, MDBTabPane, MDBRow, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBModal, MDBModalHeader, MDBModalBody, MDBBtn } from 'mdbreact';
 
 const products = [
     {
@@ -65,7 +68,7 @@ function Resources({match}) {
             <img src={product.gambar}/>
             <h3>{product.name}</h3>
             <p>{product.description}</p>
-            <p>{product.harga}</p>
+            <p>Rp.{product.harga}</p>
             <button type="submit" className="btn-primary">Beli</button>
         </div>
     )
@@ -126,33 +129,5 @@ function Product({match}) {
             <Route exact path={`/products/:productId`}></Route>
             <Route path={`/products/:productId/:subId`} component={Resources}/> 
         </section>
-        
-        // <div>
-        //     <h2><center>{product.name}</center></h2>
-        //     <ul>
-        //         {product.resources.map((sub)=>(
-        //         <li key={sub.id}>
-        //             <Link to={`/products/${match.params.productId}/${sub.id}`}>
-        //                 {sub.name}
-        //             </Link>
-        //         </li>
-        //         ))}
-        //     </ul>
-        //     <hr/>
-        //     <Route path={`/products/:productId/:subId`} component={Resources}/>
-        // </div>
      )
 }
-
-const fakeAuth = {
-    isAuthenticated: false,
-    authenticate(cb) {
-        fakeAuth.isAuthenticated = true;
-        setTimeout(cb, 100);
-    },
-    signOut(cb) {
-        fakeAuth.isAuthenticated = false;
-        setTimeout(cb, 100);
-    }
-};
-
