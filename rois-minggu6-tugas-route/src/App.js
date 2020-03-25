@@ -11,7 +11,7 @@ import Background from './container/background.jpg';
 import { MDBContainer, MDBNav, MDBView, MDBBtn, MDBMask, MDBRow, MDBCol, MDBNavItem} from 'mdbreact';
 
 
-function App() {
+export default function App() {
   return (
     <div id="minimalistintro">
       <Router>
@@ -112,4 +112,4 @@ function LoginPage() {
   );
 }
 
-export {AuthButton, App} ;
+export {AuthButton} ;

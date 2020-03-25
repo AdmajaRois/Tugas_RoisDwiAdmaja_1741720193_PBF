@@ -28,7 +28,7 @@ const Navbar = () => {
                     </MDBNavbarNav> 
                     <MDBNavbarNav right>
                         <MDBNavItem>
-                            <AuthButton/>
+                         
                         </MDBNavItem>
                     </MDBNavbarNav>
                 </MDBContainer>
