@@ -8,16 +8,19 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Gae opo yo ?
         </p>
+        <p>Inspirasi >>>
+        &nbsp;
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://pornhub.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Pornhub.com
         </a>
+        </p>
       </header>
     </div>
   );
