@@ -1,0 +1,18 @@
+import React from 'react';
+
+const Post = (props) => {
+    return (
+        <div className="artikel">
+            <div className="gambar-artikel">
+                <img src="http://placeimg.com/80/80/tech" alt="Thumbnail Artikel"/>
+            </div>
+            <div className="konten-artikel">
+                <div className="judul-artikel">{props.title}</div>
+                <p className="isi-artikel">{props.body}</p>
+                <button className="btn btn-sm btn-warning" onClick={()=>props.deletePost(props.idPost)}>Hapus</button>
+            </div>
+        </div>
+    )
+}
+
+export default Post;
