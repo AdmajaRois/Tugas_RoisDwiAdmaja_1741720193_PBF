@@ -6,7 +6,20 @@
       "password": "Masuk123"
     }
   ],
-  "posts": [],
+  "posts": [
+    {
+      "userId": 1,
+      "id": 1585718329090,
+      "title": "kapan berakhirnya ",
+      "body": "disini sudah tidak kuat lagi kapan berakhirnya wabah ini"
+    },
+    {
+      "userId": 1,
+      "id": 1585718356733,
+      "title": "halo semuannya",
+      "body": "saya adalah manusia"
+    }
+  ],
   "todos": [
     {
       "userId": 1,

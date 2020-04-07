@@ -28,7 +28,7 @@ export default function Home(){
                         <h4 className='subtext-header mt-2 mb-4'>
                             Buat post dan todo harian kamu 
                         </h4>
-                        <MDBLink to='/CreatePost'>
+                        <MDBLink to='/BlogPost'>
                             <MDBBtn outline rounded color='white'>
                                 <MDBIcon icon='blog'/> Post Sekarang
                             </MDBBtn>

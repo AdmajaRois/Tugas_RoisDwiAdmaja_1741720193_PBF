@@ -55,11 +55,6 @@ export default class Navbar extends React.Component {
                   Post
                 </MDBNavLink>
               </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink link to='/todos'>
-                  Todo
-                </MDBNavLink>
-              </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBContainer>

@@ -6,6 +6,7 @@ import { MDBInput, MDBContainer, MDBInputGroup } from 'mdbreact';
 
 
 class BlogPost extends Component {
+    
     state = {
         MyWorld: [],
         insertPost: {
@@ -54,8 +55,8 @@ class BlogPost extends Component {
         })
     }
 
-    handleDeletePost= (data) => {
-        fetch(`http://localhost:4000/posts/${data}`, {method: 'DELETE'})
+    handleDeletePost= (id) => {
+        fetch(`http://localhost:4000/posts/${id}`, {method: 'DELETE'})
         .then(res => {
             console.log(this.GetServerAPI());
         })
@@ -63,13 +64,22 @@ class BlogPost extends Component {
 
     render() {
       return (
-        <MDBContainer className="px-md-3 px-sm-0"
-            style={{marginTop:"5em"}}>
-            <MDBInputGroup type="text" containerClassName="mb-3" prepend="judul" id="title" name="title" onChange={this.handleInsertPost}/>
-            <MDBInputGroup prepend="Isi" type="textarea"  id="body" name="body" onChange={this.handleInsertPost}/>
-            <button type="submit" className="btn btn-primary" onClick={this.handleSavePost}>Simpan</button>
-                
-                <h2>Daftar Artikel</h2>
+        <div className="container" style={{marginTop: "5em"}}>
+        <div className="post-artikel">
+            <div className="form pb-2 border-bottom">
+                <div className="form-group row">
+                        <div className="col-sm-10">
+                            <input type="text" className="form-control" id="title" name="title" onChange={this.handleInsertPost} placeholder="Masukkan Judul.."/>
+                        </div>
+                    </div>
+                    <div className="form-group row">
+                        <div className="col-sm-10">
+                            <textarea className="form-control" id="body" name="body" rows="3" onChange={this.handleInsertPost} placeholder="Apa yang anda pikirkan ?"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" className="btn btn-primary" onClick={this.handleSavePost}>Simpan</button>
+                </div>
+                <br/>
                 {
                     this.state.MyWorld.map(post => {
                         return <Post key={post.id} 
@@ -79,8 +89,8 @@ class BlogPost extends Component {
                                 deletePost={this.handleDeletePost}/>
                     })
                 }
-    
-        </MDBContainer>
+        </div>
+        </div>
       )
     };
 }
