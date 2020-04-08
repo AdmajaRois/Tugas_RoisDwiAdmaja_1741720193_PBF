@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Post from '../../component/BlogPost/Post';
 import './BlogPost.css';
+import API from '../../services/index';
 
 class BlogPost extends Component {
     state = {
@@ -14,13 +15,11 @@ class BlogPost extends Component {
     }
 
     ambilDataDariServerAPI = () =>{
-        fetch('http://localhost:4000/posts?_sort=id&_order=desc')
-        .then(response => response.json())
-        .then(jsonHasilAmbilDariAPI => {
-            this.setState({
-                listArtikel: jsonHasilAmbilDariAPI
-            })
-        })
+       API.getNewsBlog().then(result => {
+           this.setState({
+               listArtikel: result
+           })
+       })
     }
 
     componentDidMount() {
@@ -52,10 +51,10 @@ class BlogPost extends Component {
     }
 
     handleHapusArtikel = (data) => {
-      fetch(`http://localhost:4000/posts/${data}`, {method: 'DELETE'})
-      .then(res => {
-          console.log(this.ambilDataDariServerAPI());
-      })
+        API.deleteNewsBlog(this.state.insertArtikel)
+        .then((response) => {
+            this.ambilDataDariServerAPI();
+        });
     }
 
     render() {
