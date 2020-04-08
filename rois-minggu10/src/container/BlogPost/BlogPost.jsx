@@ -51,7 +51,7 @@ class BlogPost extends Component {
     }
 
     handleHapusArtikel = (data) => {
-        API.deleteNewsBlog(this.state.insertArtikel)
+        API.deleteNewsBlog(data)
         .then((response) => {
             this.ambilDataDariServerAPI();
         });
