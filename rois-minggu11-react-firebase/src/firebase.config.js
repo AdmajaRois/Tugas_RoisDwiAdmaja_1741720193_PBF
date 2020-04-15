@@ -5,6 +5,8 @@ var firebaseConfig = {
     projectId: "react-login-fab26",
     storageBucket: "react-login-fab26.appspot.com",
     messagingSenderId: "506362191682",
-    appId: "1:506362191682:web:9af58a9cbf0ddc6c09f2db",
-    measurementId: "G-NQ6TPD502F"
+    appId: "1:506362191682:web:d6783a454f49e62609f2db",
+    measurementId: "G-FYWZ2NLZ90"
   };
+
+  export default firebaseConfig;
