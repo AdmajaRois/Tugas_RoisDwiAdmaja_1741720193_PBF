@@ -12,7 +12,7 @@ export const VERIFY_REQUEST = "VERIFY_REQUEST";
 export const VERIFY_SUCCESS = "VERIFY_SUCCESS";
 
 
-const requestgLogin =_=>{
+const requestLogin =_=>{
     return {
         type: LOGIN_REQUEST
     };
