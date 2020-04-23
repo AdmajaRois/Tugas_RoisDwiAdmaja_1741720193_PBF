@@ -62,16 +62,15 @@ const verifySuccess =_=>{
 };
 
 export const loginUser = (email, password) => dispatch =>{
-    dispatch(requestLogin());
-    myFirebase
-    .auth()
-    .signInwithEmailAndPassword(email,password)
-    .then(user =>{
-        dispatch(receiveLogin(user));
-    })
-    .catch(error=>{
-        dispatch(loginError());
-    });
+   dispatch(requestLogin());
+   myFirebase
+   .auth()
+   .signInWithEmailAndPassword(email, password)
+   .then(user=>{
+       dispatch(receiveLogin(user));
+   }). catch(error=>{
+       dispatch(loginError());
+   });
 };
 
 export const logoutUser=_=>dispatch=>{
