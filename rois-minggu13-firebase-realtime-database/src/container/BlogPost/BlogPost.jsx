@@ -94,7 +94,9 @@ class BlogPost extends Component{
                 <h2>Daftar Artikel</h2>
                 {
                     this.state.listArtikel.map(artikel => {  // looping dan masukkan untuk setiap data yang ada di listArtikel ke variabel artikel
-                        return <Post key={artikel.uid} judul={artikel.title} isi={artikel.body} idArtikel={artikel.uid} hapusArtikel={this.handleHapusArtikel}/>     // mappingkan data json dari API sesuai dengan kategorinya
+                        return <Post key={artikel.uid} judul={artikel.title} 
+                        isi={artikel.body} idArtikel={artikel.uid} 
+                        hapusArtikel={this.handleHapusArtikel}/>     // mappingkan data json dari API sesuai dengan kategorinya
                     })
                 }
             </div>

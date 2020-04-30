@@ -10,7 +10,8 @@ const Post = (props) => {
                 <div className="judul-artikel">{props.judul}</div>
                 <p className="isi-artikel">{props.isi}</p>
                 <button className="btn btn-sm btn-warning" 
-                    onClick={() => {if (window.confirm('Apakah anda yakin menghapus artikel ini?')) props.hapusArtikel(props.idArtikel)}}>
+                    onClick={() => {if (window.confirm('Apakah anda yakin menghapus artikel ini?')) 
+                    props.hapusArtikel(props.idArtikel)}}>
                     Hapus
                 </button>
             </div>
