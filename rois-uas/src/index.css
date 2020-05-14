@@ -12,10 +12,8 @@ code {
     monospace;
 }
 
-#sidebar{
-  background-color: aquamarine;
-}
-
-#content{
-  background-color: lightgray;
+@media screen and (max-width: 1000px){
+  body{
+    width: 100%;
+  }
 }

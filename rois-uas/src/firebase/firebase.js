@@ -1,3 +1,8 @@
+import firebase from "firebase/app";
+import "firebase/database";
+import "firebase/auth";
+import "firebase/storage";
+
 const firebaseConfig = {
     apiKey: "AIzaSyDYzJDc_094Ojqzx2K_bXuTcjgG3zE-xuk",
     authDomain: "movieapp-4130e.firebaseapp.com",
@@ -9,4 +14,6 @@ const firebaseConfig = {
     measurementId: "G-EP42ST46YX"
 };
 
-export default firebaseConfig;
+
+export const myFirebase = firebase.initializeApp(firebaseConfig);
+export const storage = firebase.storage();

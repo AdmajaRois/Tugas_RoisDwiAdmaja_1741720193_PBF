@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Switch, Route} from 'react-router-dom';
+import Login from "./component/Login/Login";
+import SignUp from "./component/Login/Signup";
+import Home from "./component/Home/Home";
+import InputPage from "./component/Input/Input";
+import ProtectedRoute from "./ProtectedRoute";
+// import './App.css';
+import { connect } from 'react-redux';
 
-function App() {
+
+function App(props) {
+  const {isAuthenticated, isVerifying} = props;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Switch>
+      <ProtectedRoute exact path="/" component={Home} 
+      isAuthenticated={isAuthenticated} 
+      isVerifying={isVerifying}/>
+      <Route path="/inputpage" component={InputPage}/>
+      <Route path="/login" component={Login}/>
+      <Route path="/signup" component={SignUp}/>
+    </Switch>
     </div>
   );
 }
 
-export default App;
+function mapStateToProps(state) {
+    return {
+      isAuthenticated: state.auth.isAuthenticated,
+      isVerifying: state.auth.isVerifying
+    }
+}
+
+
+
+
+export default connect(mapStateToProps)(App);

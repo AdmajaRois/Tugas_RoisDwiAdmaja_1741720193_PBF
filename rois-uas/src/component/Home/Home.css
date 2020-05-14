@@ -1,0 +1,16 @@
+.container {
+    margin-top: 10px;
+}
+
+/* .column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px;
+} */
+
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
